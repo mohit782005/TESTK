@@ -13,15 +13,15 @@ function formatMs() {
 
 function buildPayload() {
   return {
-    workspace: process.env.NEXUS_REMOTE || "manual-telemetry-check/testp",
-    service: "testp-web",
+    workspace: process.env.NEXUS_REMOTE || "manual-telemetry-check/TESTLOGIC",
+    service: "testlogic-web",
     buildId: `web-${Date.now()}`,
   };
 }
 
 function logStartupTelemetry() {
   const payload = buildPayload();
-  console.log("[telemetry] boot=testp-web");
+  console.log("[telemetry] boot=testlogic-web");
   console.log(`[telemetry] payload=${JSON.stringify(payload)}`);
   console.log(`[telemetry] phase=boot elapsed=${formatMs()}`);
   console.log(`[telemetry] port=${port}`);
@@ -32,9 +32,10 @@ function logStartupTelemetry() {
 }
 
 function emitCrashLogs(reason) {
-  console.error("src/broken.ts:12 Build exploded in TESTP");
-  console.error(`Error: Synthetic web-service failure: ${reason}`);
-  console.error("    at verifyBuild (src/broken.ts:12:5)");
+  console.error("src/logic_engine.ts:47 Fatal assertion failed in TESTLOGIC");
+  console.error(`Error: Synthetic logic-engine failure: ${reason}`);
+  console.error("    at validatePipeline (src/logic_engine.ts:47:11)");
+  console.error("    at processQueue (src/queue.ts:23:5)");
 }
 
 const server = http.createServer((req, res) => {
@@ -42,7 +43,7 @@ const server = http.createServer((req, res) => {
 
   if (req.url === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ ok: true, service: "testp-web" }));
+    res.end(JSON.stringify({ ok: true, service: "testlogic-web" }));
     return;
   }
 
@@ -55,13 +56,13 @@ const server = http.createServer((req, res) => {
   }
 
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("TESTP web service is running\n");
+  res.end("TESTLOGIC web service is running\n");
 });
 
 server.listen(port, host, () => {
   logStartupTelemetry();
   console.log(`[telemetry] status=listening host=${host} port=${port}`);
-  console.log("TESTP web service started successfully");
+  console.log("TESTLOGIC web service started successfully");
 
   if (failOnBoot) {
     setTimeout(() => {
