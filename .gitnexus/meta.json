@@ -1,11 +1,11 @@
 {
-  "repoPath": "C:\\nexus-X\\TESTP",
-  "lastCommit": "",
-  "indexedAt": "2026-04-16T15:36:43.413Z",
+  "repoPath": "C:\\nexus-X\\TESTK",
+  "lastCommit": "d4751b736a36021f6caae91a34256ecddac313b9",
+  "indexedAt": "2026-04-16T19:43:40.469Z",
   "stats": {
-    "files": 5,
-    "nodes": 26,
-    "edges": 42,
+    "files": 7,
+    "nodes": 45,
+    "edges": 59,
     "communities": 4,
     "processes": 1,
     "embeddings": 0
