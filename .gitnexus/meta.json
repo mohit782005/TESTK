@@ -1,11 +1,11 @@
 {
-  "repoPath": "C:\\nexus-X\\TESTK",
-  "lastCommit": "d4751b736a36021f6caae91a34256ecddac313b9",
-  "indexedAt": "2026-04-16T19:43:40.469Z",
+  "repoPath": "C:\\nexus-X\\TESTLOGIC",
+  "lastCommit": "b70a152d2416c9efeef762b5c1fe2f30155046ec",
+  "indexedAt": "2026-04-16T20:34:32.978Z",
   "stats": {
     "files": 7,
-    "nodes": 45,
-    "edges": 59,
+    "nodes": 49,
+    "edges": 63,
     "communities": 4,
     "processes": 1,
     "embeddings": 0
